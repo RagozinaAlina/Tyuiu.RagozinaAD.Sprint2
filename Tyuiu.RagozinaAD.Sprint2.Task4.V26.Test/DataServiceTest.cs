@@ -1,6 +1,5 @@
-﻿
-using Tyuiu.RagozinaAD.Sprint2.Task4.V26.Lib;
-namespace TestProject1
+﻿using Tyuiu.RagozinaAD.Sprint2.Task4.V26.Lib;
+namespace Tyuiu.RagozinaAD.Sprint2.Task4.V26.Test
 {
     [TestClass]
     public sealed class DataServiceTest
