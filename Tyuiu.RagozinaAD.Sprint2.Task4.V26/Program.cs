@@ -37,5 +37,6 @@ internal class Program
         Console.WriteLine("Значение функции = " + res);
         Console.ReadKey();
 
+
     }
 }
