@@ -5,93 +5,49 @@ namespace Tyuiu.RagozinaAD.Sprint2.Task6.V9.Lib
     {
         public string FindDateOfNextDay(int m, int n)
         {
+            if ((m % 2 != 0 && n == 30) || (m % 2 == 0 && n == 31) || (m == 2 && n == 28))
             {
-                if (m == 31)
-                {
-                    n += 1;
-                    m -= 30;
-                }
-                else if (m < 31)
-                {
-                    if ((n == 2) && (m == 28))
-                    {
-                        n += 1;
-                        m -= 27;
-                    }
-                    else if ((n == 4) && (m == 30))
-                    {
-                        n += 1;
-                        m -= 29;
-                    }
-                    else if ((n == 6) && (m == 30))
-                    {
-                        n += 1;
-                        m -= 29;
-                    }
-                    else if ((n == 9) && (m == 30))
-                    {
-                        n += 1;
-                        m -= 29;
-                    }
-                    else if ((n == 11) && (m == 30))
-                    {
-                        n += 1;
-                        m -= 29;
-                    }
-                    else
-                    {
-                        m += 1;
-                    }
-
-                }
-                string res;
-                switch (n)
-                {
-                    case 1:
-                        res = "01";
-                        break;
-                    case 2:
-                        res = "02";
-                        break;
-                    case 3:
-                        res = "03";
-                        break;
-                    case 4:
-                        res = "04";
-                        break;
-                    case 5:
-                        res = "05";
-                        break;
-                    case 6:
-                        res = "06";
-                        break;
-                    case 7:
-                        res = "07";
-                        break;
-                    case 8:
-                        res = "08";
-                        break;
-                    case 9:
-                        res = "09";
-                        break;
-                    case 10:
-                        res = "10";
-                        break;
-                    case 11:
-                        res = "11";
-                        break;
-                    case 12:
-                        res = "12";
-                        break;
-                    default:
-                        throw new ArgumentException($"Месяц должен быть от 1 до 12. Значение {n}");
-                }
-                string res2;
-                res2 = m + "." + res;
-                return res2;
-
+                m++;
             }
+            if ((n < 9) || (m % 2 == 0 && n == 30) || (m % 2 != 0 && n == 31) || (m == 3 && n == 28))
+            {
+                switch (m)
+                {
+                    case 1: return $"0{n + 1}.0{m}";
+                    case 2: return $"0{n % 30 + 1}.0{m}";
+                    case 3: return $"0{n % 28 + 1}.0{m}";
+                    case 4: return $"0{n % 30 + 1}.0{m}";
+                    case 5: return $"0{n % 31 + 1}.0{m}";
+                    case 6: return $"0{n % 30 + 1}.0{m}";
+                    case 7: return $"0{n % 31 + 1}.0{m}";
+                    case 8: return $"0{n % 30 + 1}.0{m}";
+                    case 9: return $"0{n % 31 + 1}.0{m}";
+                    case 10: return $"0{n % 30 + 1}.{m}";
+                    case 11: return $"0{n % 31 + 1}.{m}";
+                    case 12: return $"0{n % 30 + 1}.{m}";
+                    default: throw new ArgumentException("Если вы попробовали ввести 31 Декабря, то такая функция недоступна.");
+                }
+            }
+            else
+            {
+                switch (m)
+                {
+                    case 1: return $"{n + 1}.0{m}";
+                    case 2: return $"{n % 30 + 1}.0{m}";
+                    case 3: return $"{n % 28 + 1}.0{m}";
+                    case 4: return $"{n % 30 + 1}.0{m}";
+                    case 5: return $"{n % 31 + 1}.0{m}";
+                    case 6: return $"{n % 30 + 1}.0{m}";
+                    case 7: return $"{n % 31 + 1}.0{m}";
+                    case 8: return $"{n % 30 + 1}.0{m}";
+                    case 9: return $"{n % 31 + 1}.0{m}";
+                    case 10: return $"{n % 30 + 1}.{m}";
+                    case 11: return $"{n % 31 + 1}.{m}";
+                    case 12: return $"{n % 30 + 1}.{m}";
+                    default: throw new ArgumentException("Если вы попробовали ввести 31 Декабря, то такая функция недоступна.");
+                }
+            }
+
         }
     }
 }
-
